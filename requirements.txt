@@ -3,3 +3,4 @@ python-dotenv
 camel-ai
 mistralai
 langGraph
+python 3.10
