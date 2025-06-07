@@ -6,14 +6,14 @@ from camel.messages import BaseMessage
 from camel.toolkits.search_toolkit import SearchToolkit
 from prompts import *
 
-# Create Mistral model using CAMEL's ModelFactory
+
 mistral_model = ModelFactory.create(
     model_platform=ModelPlatformType.MISTRAL,
     model_type=ModelType.MISTRAL_LARGE,
     model_config_dict=MistralConfig(temperature=0.7).as_dict(),
 )
 
-# Get web search tools for real-time info
+
 search_tools = SearchToolkit().get_tools()
 
 def run_agent(system_prompt, user_query):
@@ -21,7 +21,7 @@ def run_agent(system_prompt, user_query):
         system_message=system_prompt,
         message_window_size=10,
         model=mistral_model,
-        tools=search_tools  # added toolkit support here
+        tools=search_tools  
     )
     user_msg = BaseMessage.make_user_message(role_name="user", content=user_query)
     response = agent.step(user_msg).msg.content
@@ -46,4 +46,4 @@ def monetization_agent(query):
     return run_agent(monetization_prompt, query)
 
 def market_research_agent(query):
-    return run_agent(market_research_prompt, query)  # fixed wrong ref
+    return run_agent(market_research_prompt, query) 
