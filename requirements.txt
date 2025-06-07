@@ -1,6 +1,6 @@
 streamlit
 python-dotenv
-camel-ai
+camel-ai[all]
 mistralai
 langGraph
 python 3.10
