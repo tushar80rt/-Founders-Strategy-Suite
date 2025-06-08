@@ -14,7 +14,6 @@ import re
 import time
 
 def clean_text(text):
-    """Removes emojis & converts problematic Unicode characters."""
     text = text.replace("’", "'").replace("“", '"').replace("”", '"')  
     text = text.replace("\u2014", "-").replace("\u2013", "-")  
     emoji_pattern = re.compile("[" 
