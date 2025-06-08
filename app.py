@@ -32,7 +32,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Enhanced CSS Styling
+
 st.markdown("""
 <style>
 .block-container { padding-top: 2rem; padding-bottom: 2rem; }
@@ -64,7 +64,7 @@ a:hover {
 </style>
 """, unsafe_allow_html=True)
 
-# Sidebar (with clickable AI framework links opening in new tab)
+
 with st.sidebar:
     st.header("💡 Founders' Strategy Suite")
     st.markdown("""
@@ -89,17 +89,17 @@ with st.sidebar:
     """, unsafe_allow_html=True)
     st.markdown("---")
 
-# UI Layout
+
 col1, col2, col3 = st.columns([1, 6, 1])
 with col2:
     st.markdown("<h1 style='text-align: center; color: #f9fafb;'>💡 Founders' Strategy Suite</h1>", unsafe_allow_html=True)
     idea = st.text_input("Describe your startup idea:", placeholder="What can I help you with today?", key="idea_input")
 
-# Store Past Conversations
+
 if "conversations" not in st.session_state:
     st.session_state["conversations"] = []
 
-# Startup Analysis Agents
+
 tasks = [
     ("Idea Validation", idea_validator_agent),
     ("Business Model", business_model_agent),
@@ -128,7 +128,6 @@ if st.button("✨ Generate Business Plan"):
         st.success("Business plan generated successfully!")
         st.session_state["conversations"].insert(0, {"idea": idea, "plan": plan})  # Save history
 
-# Show Previous History
 if st.session_state.conversations:
     st.markdown("## 📚 Previous Analyses")
 for idx, convo in enumerate(st.session_state.conversations):
